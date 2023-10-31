@@ -18,7 +18,9 @@ A Python script that calculates the determinant of a square matrix using the met
 python3 cofactor-expansion.py
 
 1. Utilize the example matrices within the script as a basis for testing.
-2. Optionally, import the minor and determinant functions for usage in other scripts or projects:```
+2. Optionally, import the minor and determinant functions for usage in other scripts or projects:
+```
 
 ```python
-from cofactor_expansion import minor, determinant```
+from cofactor_expansion import minor, determinant
+```
