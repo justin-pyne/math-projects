@@ -22,6 +22,19 @@ This repository contains a collection of Python scripts that demonstrate various
    - Calculate and display expected values and variance for the created distribution.
    - Perform and visualize operations on random variables, including addition, subtraction, multiplication, and division.
 
+4. **Law of Large Numbers (`law_of_large_numbers.py`)**
+
+   - Demonstrate the Law of Large Numbers through simulations and visualizations.
+   - Show how the average of results obtained from a large number of trials converges to the expected value.
+   - Compare results for different sample sizes to illustrate the concept.
+
+5. **Central Limit Theorem (`central_limit_theorem.py`)**
+
+   - Demonstrate the Central Limit Theorem through simulations and visualizations.
+   - Show how the distribution of sample means approximates a normal distribution, regardless of the shape of the original data distribution.
+   - Include a normal distribution fit to highlight the convergence towards normality.
+
+
 
 ## Installation
 
