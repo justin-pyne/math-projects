@@ -1,6 +1,6 @@
 # probability-projects
 
-This repository contains a collection of Python scripts that demonstrate various probability concepts. Each script is a separate project that focuses on specific aspects of probability, such as different probability distributions, random variables, and expected values.
+This repository contains a collection of Python scripts that demonstrate various probability concepts. Each script is a separate project that focuses on specific topic in probability
 
 ## Projects
 
