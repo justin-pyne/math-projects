@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm, binom, poisson, skew, kurtosis
 
 def simulate_distribution():
-    # User selects a probability distribution
+    # user selects a probability distribution
     distribution = input("Select a distribution (normal/binomial/poisson): ").lower()
 
-    # Take parameters for chosen distribution
+    # get param for chosen distribution
     if distribution == 'normal':
         mean = float(input("Enter the mean: "))
         std_dev = float(input("Enter the standard deviation: "))
