@@ -16,6 +16,13 @@ This repository contains a collection of Python scripts that demonstrate various
    - Visualize the distribution and calculate/display the expected value and variance.
    - Perform operations on random variables (addition, subtraction, multiplication, division) and visualize the resulting distribution.
 
+3. **Custom Probability Distribution (`custom_probability_distribution.py`)**
+
+   - Create and visualize custom discrete or continuous probability distributions.
+   - Calculate and display expected values and variance for the created distribution.
+   - Perform and visualize operations on random variables, including addition, subtraction, multiplication, and division.
+
+
 ## Installation
 
 You need Python installed on your machine, and the following Python packages:
