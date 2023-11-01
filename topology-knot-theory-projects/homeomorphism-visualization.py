@@ -1,32 +1,51 @@
 import plotly.graph_objects as go
 import numpy as np
 
-# sphere
-u = np.linspace(0, 2 * np.pi, 100)
-v = np.linspace(0, np.pi, 100)
-x = np.outer(np.cos(u), np.sin(v))
-y = np.outer(np.sin(u), np.sin(v))
-z = np.outer(np.ones(np.size(u)), np.cos(v))
+# 1. Generate 10,000 points on a sphere
+phi = np.linspace(0, np.pi, 100)  # Co-latitude
+theta = np.linspace(0, 2 * np.pi, 100)  # Longitude
+phi, theta = np.meshgrid(phi, theta)
+phi, theta = phi.flatten(), theta.flatten()
 
-sphere = go.Figure(data=[go.Surface(x=x, y=y, z=z)])
-sphere.update_layout(title='3D Sphere', autosize=False, width=500, height=500, margin=dict(l=65, r=50, b=65, t=90))
+x = np.sin(phi) * np.cos(theta)
+y = np.sin(phi) * np.sin(theta)
+z = np.cos(phi)
 
-# cube vertices
-x = [0, 1, 1, 0, 0, 1, 1, 0]
-y = [0, 0, 1, 1, 0, 0, 1, 1]
-z = [0, 0, 0, 0, 1, 1, 1, 1]
+# 2. Project the points from the sphere to the cube
+def sphere_to_cube(x, y, z):
+    max_axis = np.max([abs(x), abs(y), abs(z)])
+    return x/max_axis, y/max_axis, z/max_axis
 
-# 12 triangles to create faces of the cube
-i = [0, 0, 4, 4, 0, 0, 2, 2, 0, 0, 1, 1]
-j = [1, 2, 5, 6, 1, 5, 3, 7, 3, 7, 2, 6]
-k = [2, 3, 6, 7, 5, 4, 7, 6, 7, 4, 6, 5]
+cube_x, cube_y, cube_z = np.vectorize(sphere_to_cube)(x, y, z)
 
+# 3. & 4. Morphing and plotting
+def morph_shapes(alpha, s_x, s_y, s_z, c_x, c_y, c_z):
+    morphed_x = (1-alpha)*np.array(c_x) + alpha*np.array(s_x)
+    morphed_y = (1-alpha)*np.array(c_y) + alpha*np.array(s_y)
+    morphed_z = (1-alpha)*np.array(c_z) + alpha*np.array(s_z)
+    return morphed_x, morphed_y, morphed_z
 
+# Initial plot (cube)
+m_x, m_y, m_z = morph_shapes(0, x, y, z, cube_x, cube_y, cube_z)
+scatter = go.Scatter3d(x=m_x, y=m_y, z=m_z, mode='markers', marker=dict(size=2))
 
+# Create figure
+fig = go.Figure(data=[scatter])
+fig.update_layout(title='Morphing Cube to Sphere', autosize=False, 
+                  width=500, height=500, margin=dict(l=65, r=50, b=65, t=90))
 
-cube = go.Figure(data=[go.Mesh3d(x=x, y=y, z=z, i=i, j=j, k=k, opacity=0.5)])
-cube.update_layout(title='3D Cube', autosize=False, width=500, height=500, margin=dict(l=65, r=50, b=65, t=90))
+# Add slider to adjust morphing
+steps = []
+for step in np.linspace(0, 1, 100):
+    m_x, m_y, m_z = morph_shapes(step, x, y, z, cube_x, cube_y, cube_z)
+    step_dict = {
+        'args': [{'x': [m_x], 'y': [m_y], 'z': [m_z]}, [0]],
+        'label': str(round(step, 2)),
+        'method': 'restyle'
+    }
+    steps.append(step_dict)
 
-# display figures
-sphere.show()
-cube.show()
+slider = go.layout.Slider(steps=steps)
+fig.update_layout(sliders=[slider])
+
+fig.show()
