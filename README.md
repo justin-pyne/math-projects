@@ -18,4 +18,4 @@ This repository, `math-projects`, is a collection of my various mathematical pro
 
 ## Getting Started
 
-Each project folder contains all the necessary files and documentation to get started. To run a project, navigate to the project's folder and follow the instructions in the project's README.
+Each project folder contains all the necessary files and documentation to get started. To run a project, navigate to the project's folder and follow the instructions in the project's README. Each folder used to be an individual repo so if you are only interested in a certain project, you can download the individual folder. Enjoy!
