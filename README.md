@@ -30,7 +30,3 @@ This repository contains three Python scripts that explore different aspects of 
    ```
    python <script_name>.py
    ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
