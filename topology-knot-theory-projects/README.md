@@ -4,11 +4,11 @@ This project demonstrates the transition between a cube and a sphere using a mor
 
 ## Overview
 
-Starting with the 8 vertices of a cube, this script uses a combination of the cube's vertices and those of a sphere to compute the morphed coordinates. The morphing is controlled by a parameter `alpha`, which varies between 0 and 1. An alpha of 0 represents the cube shape, while an alpha of 1 represents the sphere shape. Intermediate values of alpha provide the various morphed states between the cube and the sphere.
+Starting with the 8 vertices of a cube, this script uses a combination of the cube's vertices and those of a sphere to compute the morphed coordinates. The morphing is controlled by a parameter which varies between 0 and 1. 0 represents the cube shape, while 1 represents the sphere shape. Intermediate values provide the various morphed states between the cube and the sphere.
 
 ## Visualization
 
-This project uses `plotly.graph_objects` to render the 3D shapes and provides an interactive experience for the user. The interactive slider at the bottom allows the user to change the value of `alpha` and see the morphed shape in real-time.
+This project uses `plotly.graph_objects` to render the 3D shapes and provides an interactive experience for the user. The interactive slider at the bottom allows the user to see the morphed shape in real-time.
 
 ## Usage
 
