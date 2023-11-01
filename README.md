@@ -10,11 +10,15 @@ This repository, `math-projects`, is a collection of my various mathematical pro
      
 2. **Probability Projects**
    - Located in the `probability-projects` folder.
-   - Encompasses projects that simulate and visualize different probability distributions and their properties.
+   - Includes projects that simulate and visualize different probability distributions and their properties.
 
 3. **Cofactor Expansion**
    - Located in the `cofactor-expansion` folder.
-   - Consists of a script to calculate the determinant of a matrix using cofactor expansion.
+   - Includes a script to calculate the determinant of a matrix using cofactor expansion.
+  
+4. **Topology & Knot Theory Projects**
+   - Located in the `topology-knot-theory-projects` folder.
+   - Includes a visual representation of a homeomorphism between a sphere and a cube represented in plotly.
 
 ## Getting Started
 
